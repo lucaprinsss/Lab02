@@ -31,7 +31,9 @@ public class FXMLController {
 
     @FXML
     void doClear(ActionEvent event) {
-
+    	dizionario.pulisci();
+    	txtTraduzione.clear();
+    	txtResult.clear();
     }
 
     @FXML
@@ -39,6 +41,10 @@ public class FXMLController {
     	String stringa =txtTraduzione.getText();
     	txtTraduzione.clear();
     	
+    	if(!stringa.matches("[a-zA-Z ]+"))
+    		return;
+    	
+    	stringa.toLowerCase();
     	String[] array=stringa.split(" ");
     	
     	if(array.length==1) {
